@@ -1,0 +1,94 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 2021_04_25_031017) do
+
+  create_table "base_killers", force: :cascade do |t|
+    t.string "killer_name"
+    t.string "realm"
+    t.string "power"
+    t.string "weapon"
+    t.string "speed"
+    t.string "terror_radius"
+    t.string "height"
+    t.string "difficulty"
+    t.string "overview"
+    t.string "lore"
+    t.string "dlc"
+    t.string "base_perks"
+  end
+
+  create_table "base_survivors", force: :cascade do |t|
+    t.string "survivor_name"
+    t.string "role"
+    t.string "overview"
+    t.string "lore"
+    t.string "base_perks"
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "currency_name"
+    t.integer "amount"
+    t.integer "user_id"
+  end
+
+  create_table "killer_perks", force: :cascade do |t|
+    t.string "perk_name"
+    t.string "role"
+    t.string "dscription"
+    t.integer "teach_level"
+    t.integer "killer_id"
+  end
+
+  create_table "killers", force: :cascade do |t|
+    t.string "killer_name"
+    t.string "perk_1"
+    t.integer "perk_1_tier"
+    t.string "perk_2"
+    t.integer "perk_2_tier"
+    t.string "perk_3"
+    t.integer "perk_3_tier"
+    t.string "perk_4"
+    t.integer "perk_4_tier"
+    t.integer "user_id"
+    t.integer "base_killer_id"
+  end
+
+  create_table "survivor_perks", force: :cascade do |t|
+    t.string "perk_name"
+    t.string "role"
+    t.string "dscription"
+    t.integer "teach_level"
+    t.integer "survivor_id"
+  end
+
+  create_table "survivors", force: :cascade do |t|
+    t.string "survivor_name"
+    t.string "perk_1"
+    t.integer "perk_1_tier"
+    t.string "perk_2"
+    t.integer "perk_2_tier"
+    t.string "perk_3"
+    t.integer "perk_3_tier"
+    t.string "perk_4"
+    t.integer "perk_4_tier"
+    t.integer "user_id"
+    t.integer "base_surivor_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+    t.string "email"
+    t.string "password"
+  end
+
+end
