@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_04_25_031017) do
     t.string "role"
     t.string "overview"
     t.string "lore"
+    t.string "difficulty"
+    t.string "dlc"
     t.string "base_perks"
   end
 
