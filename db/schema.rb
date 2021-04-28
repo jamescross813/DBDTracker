@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_031017) do
+ActiveRecord::Schema.define(version: 2021_04_28_204234) do
 
-  create_table "base_killers", force: :cascade do |t|
+  create_table "currencies", force: :cascade do |t|
+    t.string "currency_name"
+    t.integer "amount"
+    t.integer "user_id"
+  end
+
+  create_table "killer_perks", force: :cascade do |t|
+    t.integer "perk_id"
+    t.integer "survivor_id"
+  end
+
+  create_table "killers", force: :cascade do |t|
     t.string "killer_name"
     t.string "realm"
     t.string "power"
@@ -27,7 +38,20 @@ ActiveRecord::Schema.define(version: 2021_04_25_031017) do
     t.string "base_perks"
   end
 
-  create_table "base_survivors", force: :cascade do |t|
+  create_table "perks", force: :cascade do |t|
+    t.string "perk_name"
+    t.string "role"
+    t.string "dscription"
+    t.integer "teach_level"
+    t.integer "survivor_id"
+  end
+
+  create_table "survivor_perks", force: :cascade do |t|
+    t.integer "perk_id"
+    t.integer "survivor_id"
+  end
+
+  create_table "survivors", force: :cascade do |t|
     t.string "survivor_name"
     t.string "role"
     t.string "overview"
@@ -37,60 +61,19 @@ ActiveRecord::Schema.define(version: 2021_04_25_031017) do
     t.string "base_perks"
   end
 
-  create_table "currencies", force: :cascade do |t|
-    t.string "currency_name"
-    t.integer "amount"
+  create_table "user_killers", force: :cascade do |t|
     t.integer "user_id"
-  end
-
-  create_table "killer_perks", force: :cascade do |t|
-    t.string "perk_name"
-    t.string "role"
-    t.string "dscription"
-    t.integer "teach_level"
     t.integer "killer_id"
   end
 
-  create_table "killers", force: :cascade do |t|
-    t.string "killer_name"
-    t.string "perk_1"
-    t.integer "perk_1_tier"
-    t.string "perk_2"
-    t.integer "perk_2_tier"
-    t.string "perk_3"
-    t.integer "perk_3_tier"
-    t.string "perk_4"
-    t.integer "perk_4_tier"
+  create_table "user_survivors", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "base_killer_id"
-  end
-
-  create_table "survivor_perks", force: :cascade do |t|
-    t.string "perk_name"
-    t.string "role"
-    t.string "dscription"
-    t.integer "teach_level"
     t.integer "survivor_id"
-  end
-
-  create_table "survivors", force: :cascade do |t|
-    t.string "survivor_name"
-    t.string "perk_1"
-    t.integer "perk_1_tier"
-    t.string "perk_2"
-    t.integer "perk_2_tier"
-    t.string "perk_3"
-    t.integer "perk_3_tier"
-    t.string "perk_4"
-    t.integer "perk_4_tier"
-    t.integer "user_id"
-    t.integer "base_surivor_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
-    t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

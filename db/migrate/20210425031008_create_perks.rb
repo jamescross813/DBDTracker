@@ -1,6 +1,6 @@
-class CreateSurvivorPerks < ActiveRecord::Migration[5.2]
+class CreatePerks < ActiveRecord::Migration[5.2]
   def change
-      create_table :survivor_perks do |t|
+      create_table :perks do |t|
         t.string :perk_name
         t.string :role
         t.string :dscription

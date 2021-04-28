@@ -1,6 +1,6 @@
-class CreateBaseKillers < ActiveRecord::Migration[5.2]
+class CreateKillers < ActiveRecord::Migration[5.2]
   def change
-    create_table :base_killers do |t|
+    create_table :killers do |t|
       t.string :killer_name
       t.string :realm
       t.string :power
