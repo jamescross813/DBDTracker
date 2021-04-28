@@ -1,36 +1,41 @@
-user1 = User.create(:user_name => "skittles123", :password => "iluvskittles", :email => "skittles123@gmail.com")
+user1 = User.create(:user_name => "jamescross", :password_digest => "skittles813")
 
 currency1 = Currency.create(:currency_name => "Auric Cells", :amount => 9500)
-
-class API < ActiveRecord::Base
+  
    
-    
-    def self.get_info
+   
         killer_info = HTTParty.get("https://dbd-api.herokuapp.com/killers")
 
         survivor_info = HTTParty.get("https://dbd-api.herokuapp.com/survivors")
-    end
-    def killer_info
+   
+
+   
         killer_info.each do |data|
-                Killer.new(data["name"], 
+                Killer.create!(data["name"], 
+                    binding.pry
                         data["realm"], 
                         data["power"], 
                         data ["weapon"], 
-                        data["speed"])    
-        end   
-
-    end
-
-    def survivor_info
+                        data["speed"],
+                        data["terror_radius"],
+                        data["height"],
+                        data["difficulty"],
+                        data["overview"],
+                        data["lore"],
+                        data["dlc"],
+                        data["perks"])    
+                        binding.pry
+                end
+        
         survivor_info.each do |data|
-                Killer.new(data["title"], 
-                        data["genre"], 
-                        data["short_description"], 
-                        data ["release_date"], 
-                        data["game_url"])    
-        end   
+                Survivor.create!(data["name"], 
+                        data["role"], 
+                        data["overview"], 
+                        data ["lore"], 
+                        data["difficulty"],
+                        data["dlc"],
+                        data["perks"])  
+                end  
+      
 
-    end
 
-
-end

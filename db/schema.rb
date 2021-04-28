@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_204234) do
   end
 
   create_table "killers", force: :cascade do |t|
-    t.string "killer_name"
+    t.string "name"
     t.string "realm"
     t.string "power"
     t.string "weapon"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_204234) do
   end
 
   create_table "survivors", force: :cascade do |t|
-    t.string "survivor_name"
+    t.string "name"
     t.string "role"
     t.string "overview"
     t.text "lore"
