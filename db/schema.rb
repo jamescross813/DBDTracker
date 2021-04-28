@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 2021_04_28_204234) do
     t.string "terror_radius"
     t.string "height"
     t.string "difficulty"
-    t.string "overview"
-    t.string "lore"
+    t.text "overview"
+    t.text "lore"
     t.string "dlc"
-    t.string "base_perks"
+    t.string "perks"
   end
 
   create_table "perks", force: :cascade do |t|
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 2021_04_28_204234) do
     t.string "survivor_name"
     t.string "role"
     t.string "overview"
-    t.string "lore"
-    t.string "difficulty"
+    t.text "lore"
+    t.text "difficulty"
     t.string "dlc"
-    t.string "base_perks"
+    t.string "perks"
   end
 
   create_table "user_killers", force: :cascade do |t|

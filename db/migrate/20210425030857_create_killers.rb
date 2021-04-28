@@ -9,10 +9,10 @@ class CreateKillers < ActiveRecord::Migration[5.2]
       t.string :terror_radius
       t.string :height
       t.string :difficulty
-      t.string :overview
-      t.string :lore
+      t.text :overview
+      t.text :lore
       t.string :dlc
-      t.string :base_perks
+      t.string :perks
     end
   end
 end
