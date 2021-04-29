@@ -1,4 +1,4 @@
-class KillersController < ApplicationController
+class KillersControllers < ApplicationController
 
 get '/killers' do
 #   binding.pry
@@ -19,12 +19,12 @@ end
     
 
 post'/killers' do
-    binding.pry
-    @killer = UserKillers.create(params[:killer])
+    # binding.pry
+    @killer = UserKillers.create(killer_id: params[:killer][:id])
     
-    @killer.perks << KillerPerks.create(name: params["perk"]["name"])
+    @killer.perks << KillerPerks.create(killer_id: params[:killer][:id], perk_id: params[:killer][:perk_ids])
     
-    redirect "killers/#{@killer.id}"
+    redirect "/killers/#{@killer.id}"
 end
 
 get '/killers/:id' do 

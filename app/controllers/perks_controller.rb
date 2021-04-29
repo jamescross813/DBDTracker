@@ -6,10 +6,9 @@ get '/perks' do
     Perk.all.each do |perk|
         
     if perk.role == "Survivor"
-        
-    @perks_survivor << perk        
+        @perks_survivor << perk        
     else
-    @perks_killer << perk   
+        @perks_killer << perk   
     end
 end
     erb :'/perks/index'
@@ -20,7 +19,6 @@ post'/perks/new' do
 end
 
 get '/perks/:id' do 
-    
     @perk = Perk.find(params[:id])
     erb :'/perks/show'
 end

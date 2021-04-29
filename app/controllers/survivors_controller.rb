@@ -6,8 +6,23 @@ get '/survivors' do
     erb :'/survivors/index'
 end
 
-post'/survivors/new' do
+get '/survivors/new' do 
+    @survivors = Survivor.all
+    @perks = []
+    Perk.all.each do |perk|
+        if perk.role == "Survivor"
+        @perks << perk  
+        end
+    end
+    erb :'/survivors/new'
+end
 
+post'/survivors/new' do
+    @survivor = UserSurvivors.create(survivor_id: params[:survivor][:id])
+    
+    @survivor.perks << SurvivorPerks.create(survivor_id: params[:survivor][:id], perk_id: params[:survivor][:perk_ids])
+    
+    redirect "/survivors/#{@survivor.id}"
 end
 
 get '/survivors/:id' do 
