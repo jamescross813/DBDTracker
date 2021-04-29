@@ -4,6 +4,7 @@ get '/users/:id' do
     @user = User.find(params[:id])
     @killer = Killer.find(1)
     @survivor = Survivor.find(1)
+    
     erb :'/users/index'
 end
 

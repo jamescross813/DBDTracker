@@ -1,24 +1,14 @@
-<h1>Choose a New Killer</h1>
+<h1>Create a new Currency</h1>
 
-<form action="/killers" method="POST">
-  <label>Killer Name:</label>
+<form action="/currencies" method="POST">
+  <label>Currency Name:</label>
   <br>
   
-   <% @killers.each do |k| %>
-    <input type="radio" name="killer[killer_id]" id="<%= k.id %>" value="<%= k.id %>"><%= k.name %></input><br>
-  <% end %>
-
+    <input type="text" name= "name"><br>
+  <label>Currency Amount:</label>
   <br>
   
+    <input type="text" name="amount"><br>
 
-
-  <h3>Select Your Perks</h3>
-  <% @perks.each do |p| %>
-    <input type="radio" name="killer[perk_ids][]" id="<%= p.id %>" value="<%= p.id %>"><%= p.perk_name %></input><br>
-  <% end %>
-  <br>
-
-  
-
-  <input type="submit" value="Create killer">
+  <input type="submit" value="Create currency">
 </form>

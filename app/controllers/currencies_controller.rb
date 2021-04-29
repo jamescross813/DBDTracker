@@ -1,14 +1,14 @@
 class CurrenciesController < ApplicationController
  
+
     get '/currencies/new' do 
-        
-        
         erb :'/currencies/new'
     end
         
     
-    post'/currencies' do
-        # binding.pry
+    post '/currencies' do
+        @currency = Currency.new(params)
+
         
     end
     
