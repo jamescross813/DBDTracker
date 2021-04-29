@@ -1,4 +1,4 @@
-user1 = User.create(:user_name => "jamescross", :password_digest => "skittles813")
+
 
 currency1 = Currency.create(:currency_name => "Auric Cells", :amount => 9500)
   

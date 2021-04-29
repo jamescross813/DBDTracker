@@ -2,11 +2,10 @@ require_relative '../../config/environment'
 
 class ApplicationController < Sinatra::Base
 
-
-    enable :sessions
-
     configure do
-        set :views, 'app/views'
+            set :views, "app/views"
+            enable :sessions
+            set :session_secret, "password_security"
     end
   
     get '/' do
@@ -17,7 +16,27 @@ class ApplicationController < Sinatra::Base
         erb :'/registrations/signup'
     end
 
-    post '/registrations' do 
-    
+    post '/registrations/signup' do 
+        @user = User.new(params)
+        session[:user_id] = @user.id
+        if @user.save
+            redirect "/users/#{@user.id}"
+          else
+            redirect '/failure'
+          end
+    end
+
+    get '/users/:id' do
+      
+        @user = User.find(params[:id])
+        erb :'/users/show'
+    end
+
+    get '/faliure' do
+        erb :failure
+    end
+
+    get '/login' do
+        erb :'/sessions/login'
     end
 end

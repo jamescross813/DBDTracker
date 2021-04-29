@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-    validates_presence_of :user_name, :password_digest
+    has_secure_password
+    validates_presence_of :username, :password_digest
 has_many :user_killers
 has_many :killers, through: :user_killers
 has_many :user_survivors
