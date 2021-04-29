@@ -7,10 +7,10 @@ class CurrenciesController < ApplicationController
         
     
     post '/currencies' do
-        binding..pry
+       
         @currency = Currency.new(params)
-
-
+       
+        redirect "users/#{@user.id}"
         
     end
     
