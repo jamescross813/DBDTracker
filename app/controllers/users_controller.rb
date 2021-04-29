@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 get '/users/:id' do
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
     @killer = Killer.find(1)
     @survivor = Survivor.find(1)
     
