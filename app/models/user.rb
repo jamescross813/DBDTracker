@@ -3,10 +3,9 @@ class User < ActiveRecord::Base
 has_many :killers, through: :user_killers
 has_many :survivors, through: :user_survivors
 has_many :currencies
+belongs_to :user_killers
+belongs_to :user_survivors
 
-self.column_names.each do |col_name|
-    attr_accessor col_name.to_sym
-  end
 
 
 
