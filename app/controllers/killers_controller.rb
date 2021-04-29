@@ -1,4 +1,4 @@
-class KillersControllers < ApplicationController
+class KillersController < ApplicationController
 
 get '/killers' do
 #   binding.pry
