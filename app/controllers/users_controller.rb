@@ -2,12 +2,10 @@ class UsersController < ApplicationController
 
 get '/users/:id' do
     @user = User.find(params[:id])
+    @killer = Killer.find(1)
     erb :'/users/index'
 end
 
-get '/users/:id/killers/:id'
-    @user = User.find(params[:id])
-    erb :'/users/show/killers'
 
 patch '/users/:id/edit' do
 end
