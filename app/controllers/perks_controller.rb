@@ -19,8 +19,8 @@ post'/perks/new' do
 
 end
 
-get '/perks/:id/' do 
-    binding.pry
+get '/perks/:id' do 
+    
     @perk = Perk.find(params[:id])
     erb :'/perks/show'
 end

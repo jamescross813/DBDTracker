@@ -6,8 +6,25 @@ get '/killers' do
     erb :'/killers/index'
 end
 
-post'/killers/new' do
+get '/killers/new' do 
+    @killers = Killer.all
+    @perks = []
+    Perk.all.each do |perk|
+        if perk.role == "Killer"
+        @perks << perk  
+        end
+    end
+    erb :'/killers/new'
+end
+    
 
+post'/killers' do
+    binding.pry
+    @killer = UserKillers.create(params[:killer])
+    
+    @killer.perks << KillerPerks.create(name: params["perk"]["name"])
+    
+    redirect "killers/#{@killer.id}"
 end
 
 get '/killers/:id' do 
