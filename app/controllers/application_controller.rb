@@ -2,6 +2,9 @@ require_relative '../../config/environment'
 
 class ApplicationController < Sinatra::Base
 
+
+    enable :sessions
+
     configure do
         set :views, 'app/views'
     end
@@ -9,5 +12,7 @@ class ApplicationController < Sinatra::Base
     get '/' do
         erb :index
     end
+
+    
 
 end
