@@ -1,4 +1,4 @@
-class currenciesControllers < ApplicationController
+class CurrenciesControllers < ApplicationController
  
     get '/currencies/new' do 
         
