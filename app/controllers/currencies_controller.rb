@@ -7,7 +7,9 @@ class CurrenciesController < ApplicationController
         
     
     post '/currencies' do
+        binding..pry
         @currency = Currency.new(params)
+
 
         
     end
