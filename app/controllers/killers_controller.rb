@@ -1,9 +1,9 @@
-KillersController << ApplicationController
+class KillersController < ApplicationController
 
 get '/killers' do
-    "hello"
-    # @killers = Killer.all
-    # erb :'/killers/index'
+#   binding.pry
+    @killers = Killer.all
+    erb :'/killers/index'
 end
 
 post'/killers/new' do

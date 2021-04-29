@@ -1,7 +1,9 @@
-SurvivorController << ApplicationController
+class SurvivorsController < ApplicationController
 
 get '/survivors' do
-    erb :index
+    
+    @survivors = Survivor.all
+    erb :'/survivors/index'
 end
 
 post'/survivors/new' do
@@ -9,6 +11,7 @@ post'/survivors/new' do
 end
 
 get 'survivors/:id/' do 
+    @survivor = Survivor.find_by_id(params[:id])
     erb :show
 end
 

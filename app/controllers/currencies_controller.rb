@@ -1,4 +1,4 @@
-CurrencyController << ApplicationController
+class CurrenciesController < ApplicationController
 
 get '/currencies' do
     erb :index

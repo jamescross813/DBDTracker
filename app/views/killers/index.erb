@@ -1,1 +1,4 @@
-<%= @killers %>
+<% @killers.each do |k| %>
+<a href = "/killers/<%k.id%>"><%= "The #{k.name}"  %></a><br>
+
+<% end %>
