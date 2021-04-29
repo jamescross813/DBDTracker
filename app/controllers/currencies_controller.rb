@@ -7,9 +7,13 @@ class CurrenciesController < ApplicationController
         
     
     post '/currencies' do
-       
         @currency = Currency.new(params)
-       
+        
+        @user = User.find(session[:user_id])
+      
+        @currency.user = @user
+        
+        @currency.update(params)
         redirect "users/#{@user.id}"
         
     end

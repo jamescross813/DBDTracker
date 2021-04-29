@@ -19,10 +19,10 @@ end
     
 
 post'/killers' do
-    # binding.pry
-    @killer = UserKillers.create(killer_id: params[:killer][:id])
+   binding.pry
+    UserKiller.create(killer_id: params[:killer][:killer_id])
     
-    @killer.perks << KillerPerks.create(killer_id: params[:killer][:id], perk_id: params[:killer][:perk_ids])
+    KillerPerk.create(killer_id: params[:killer][:killer_id], perk_id: params[:killer][:perk_ids])
     
     redirect "/killers/#{@killer.id}"
 end
