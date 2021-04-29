@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
         erb :'/users/show'
     end
 
-    get '/faliure' do
+    get '/failure' do
         erb :failure
     end
 
