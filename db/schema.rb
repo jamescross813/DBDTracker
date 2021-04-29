@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_204234) do
 
   create_table "killer_perks", force: :cascade do |t|
     t.integer "perk_id"
-    t.integer "survivor_id"
+    t.integer "killer_id"
   end
 
   create_table "killers", force: :cascade do |t|
@@ -35,15 +35,15 @@ ActiveRecord::Schema.define(version: 2021_04_28_204234) do
     t.text "overview"
     t.text "lore"
     t.string "dlc"
-    t.string "perks"
+    t.string "killer_base_perks"
   end
 
   create_table "perks", force: :cascade do |t|
     t.string "perk_name"
-    t.string "role"
-    t.string "dscription"
+    t.text "description"
     t.integer "teach_level"
-    t.integer "survivor_id"
+    t.string "role"
+    t.string "name"
   end
 
   create_table "survivor_perks", force: :cascade do |t|
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_204234) do
     t.text "lore"
     t.text "difficulty"
     t.string "dlc"
-    t.string "perks"
+    t.string "survivor_base_perks"
   end
 
   create_table "user_killers", force: :cascade do |t|

@@ -7,7 +7,7 @@ class CreateSurvivors < ActiveRecord::Migration[5.2]
       t.text :lore
       t.text :difficulty
       t.string :dlc
-      t.string :perks
+      t.string :survivor_base_perks
     end
   end
 end

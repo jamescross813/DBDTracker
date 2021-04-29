@@ -12,7 +12,7 @@ class CreateKillers < ActiveRecord::Migration[5.2]
       t.text :overview
       t.text :lore
       t.string :dlc
-      t.string :perks
+      t.string :killer_base_perks
     end
   end
 end

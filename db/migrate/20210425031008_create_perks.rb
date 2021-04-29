@@ -2,10 +2,10 @@ class CreatePerks < ActiveRecord::Migration[5.2]
   def change
       create_table :perks do |t|
         t.string :perk_name
-        t.string :role
-        t.string :dscription
+        t.text :description
         t.integer :teach_level
-        t.integer :survivor_id
+        t.string :role
+        t.string :name
       end
   end
 end

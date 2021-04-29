@@ -4,42 +4,48 @@ currency1 = Currency.create(:currency_name => "Auric Cells", :amount => 9500)
   
    
    
-        # killer = HTTParty.get("https://dbd-api.herokuapp.com/killers")
-        # killer_data = JSON.parse(killer.body)
-        # survivor = HTTParty.get("https://dbd-api.herokuapp.com/survivors")
-        # survivor_data = JSON.parse(survivor.body)
-       
+        killer = HTTParty.get("https://dbd-api.herokuapp.com/killers")
+        killer_data = JSON.parse(killer.body)
    
-        # killer_data.each do |data|
-              
-        #         Killer.new(
-        #                 data["name"], 
-        #                 data["realm"], 
-        #                 data["power"], 
-        #                 data["weapon"], 
-        #                 data["speed"],
-        #                 data["terror_radius"],
-        #                 data["height"],
-        #                 data["difficulty"],
-        #                 data["overview"],
-        #                 data["lore"],
-        #                 data["dlc"],
-        #                 data["perks"]
-        #         )    
-        #         Killer.save 
-        #         end
-                
+        killer_data.each do |data|
+                Killer.create(:name => data["name"], 
+                        :realm => data["realm"], 
+                        :power => data["power"], 
+                        :weapon => data["weapon"], 
+                        :speed => data["speed"],
+                        :terror_radius => data["terror_radius"],
+                        :height => data["height"],
+                        :difficulty => data["difficulty"],
+                        :overview => data["overview"],
+                        :lore => data["lore"],
+                        :dlc => data["dlc"],
+                        :killer_base_perks => data["perks"])    
+                end
         
-        # survivor_data.each do |data|
-        #         Survivor.new(data["name"], 
-        #                 data["role"], 
-        #                 data["overview"], 
-        #                 data ["lore"], 
-        #                 data["difficulty"],
-        #                 data["dlc"],
-        #                 data["perks"])  
-        #         Survivor.save
-        #         end  
+        survivor = HTTParty.get("https://dbd-api.herokuapp.com/survivors")
+        survivor_data = JSON.parse(survivor.body)
+        
+        survivor_data.each do |data|
+                Survivor.create(:name => data["name"], 
+                        :role => data["role"], 
+                        :overview => data["overview"], 
+                        :lore => data ["lore"], 
+                        :difficulty => data["difficulty"],
+                        :dlc => data["dlc"],
+                        :survivor_base_perks => data["perks"])  
+                end  
+
+        perk = HTTParty.get("https://dbd-api.herokuapp.com/perks")
+        perk_data = JSON.parse(perk.body)
+
+                perk_data.each do |data|
+                        Perk.create(:perk_name => data["perk_name"], 
+                                :description => data["description"], 
+                                :teach_level => data["teach_level"], 
+                                :role => data ["role"], 
+                                :name => data["name"])  
+                                
+                        end 
         
       
 
