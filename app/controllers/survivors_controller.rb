@@ -10,14 +10,15 @@ post'/survivors/new' do
 
 end
 
-get 'survivors/:id/' do 
-    @survivor = Survivor.find_by_id(params[:id])
-    erb :show
+get '/survivors/:id' do 
+    # binding.pry
+    @survivor = Survivor.find(params[:id])
+    erb :'/survivors/show'
 end
 
 patch '/survivors/:id/edit' do
 end
 
-delete 'survivors/:id/delete' do
+delete '/survivors/:id/delete' do
 end
 end

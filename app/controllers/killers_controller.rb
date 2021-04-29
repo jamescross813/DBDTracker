@@ -10,13 +10,14 @@ post'/killers/new' do
 
 end
 
-get 'killers/:id/' do 
-    erb :show
+get '/killers/:id/' do 
+    @killer = killer.find(params[:id])
+    erb :'/killers/show'
 end
 
 patch '/killers/:id/edit' do
 end
 
-delete 'killers/:id/delete' do
+delete '/killers/:id/delete' do
 end
 end

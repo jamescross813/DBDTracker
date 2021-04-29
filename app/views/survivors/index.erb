@@ -1,4 +1,5 @@
 <% @survivors.each do |s| %>
-<a href = "/survivors/<%s.id%>"><%= "#{s.name}"  %></a><br>
+
+<a href="/survivors/<%= s.id %>"><%= s.name %></a><br>
 
 <% end %>
