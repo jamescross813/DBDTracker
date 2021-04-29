@@ -1,9 +1,13 @@
+<a href = "/logout">Log out</a>
 <h1><%=@user.username%></h1>
 
 
-<a href = "/killers/<%= @killer.id %>">Killer</a>
+<a href = "/killers/<%= @killer.id %>">Killer</a><br>
 
+<a href = "/surviors/<%= @survivor.id %>">Survivor</a><br> 
 
 <a href='/users/edit'>Change username or password</a><br>
 <a href='/killers/new'>Add Killers</a><br>
-<a href='/survivors/new'>Add Survivors</a>
+<a href='/survivors/new'>Add Survivors</a><br>
+<a href='/currency/:id/edit'>Edit Currency</a> <br>
+<a href ='/currency/new'>Add Currency</a>
