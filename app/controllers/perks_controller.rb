@@ -4,7 +4,7 @@ get '/perks' do
     @perks_survivor = []
     @perks_killer = []
     Perk.all.each do |perk|
-        # binding.pry
+        
     if perk.role == "Survivor"
         
     @perks_survivor << perk        
@@ -19,14 +19,16 @@ post'/perks/new' do
 
 end
 
-get 'perks/:id/' do 
-    erb :show
+get '/perks/:id/' do 
+    binding.pry
+    @perk = Perk.find(params[:id])
+    erb :'/perks/show'
 end
 
 patch '/perks/:id/edit' do
 end
 
-delete 'perks/:id/delete' do
+delete '/perks/:id/delete' do
 end
 
 end
