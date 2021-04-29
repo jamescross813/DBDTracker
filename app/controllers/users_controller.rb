@@ -1,16 +1,13 @@
 class UsersController < ApplicationController
 
-get '/users' do
-    erb :index
+get '/users/:id' do
+    @user = User.find(params[:id])
+    erb :'/users/index'
 end
 
-post'/users/new' do
-
-end
-
-get 'users/:id/' do 
-    erb :show
-end
+get '/users/:id/killers/:id'
+    @user = User.find(params[:id])
+    erb :'/users/show/killers'
 
 patch '/users/:id/edit' do
 end

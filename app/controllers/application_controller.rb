@@ -26,12 +26,6 @@ class ApplicationController < Sinatra::Base
           end
     end
 
-    get '/users/:id' do
-      
-        @user = User.find(params[:id])
-        erb :'/users/show'
-    end
-
     get '/failure' do
         erb :failure
     end
@@ -41,7 +35,7 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/login' do
-        binding.pry
+      
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
