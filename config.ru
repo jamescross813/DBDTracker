@@ -6,6 +6,7 @@ require_relative 'app/controllers/users_controller'
 
 use Rack::MethodOverride
 
+use CurrenciesController
 use KillersController
 use SurvivorsController
 use PerksController
