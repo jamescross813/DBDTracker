@@ -10,8 +10,9 @@ post'/killers/new' do
 
 end
 
-get '/killers/:id/' do 
-    @killer = killer.find(params[:id])
+get '/killers/:id' do 
+   
+    @killer = Killer.find(params[:id])
     erb :'/killers/show'
 end
 
