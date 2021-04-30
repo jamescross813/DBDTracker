@@ -1,10 +1,13 @@
 <a href = "/logout">Log out</a>
 <% if Helpers.logged_in?(session) %>
     <h1>Welcome <%= Helpers.current_user(session).username %></h1>
-         <% binding.pry %>
+    <h2><a href='/currencies/<%= currency.id%>/index'>Currencies:</h2>
+         <% @currencies.each do |c| %>
+         <h3>Name: <%= c.currency_name.capitalize %><br>
+         Amount: <%= c.amount %></h3>
+         
+         <% end %>
      <% end %>
-
-
 
 <a href = "/killers/<%= @killer.id %>">Killer</a><br>
 
@@ -13,8 +16,9 @@
 <a href='/users/<%= @user.id %>/edit'>Change username or password</a><br>
 <a href='/killers/new'>Add Killers</a><br>
 <a href='/survivors/new'>Add Survivors</a><br>
-<a href='/currencies/:id/edit'>Edit Currency</a> <br>
 <a href ='/currencies/new'>Add Currency</a>
+
+
 
 <form action = '/users/<%= @user.id %>/delete' method = "post">
 <input type = "hidden" name = "_method" value = "delete">

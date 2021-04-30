@@ -23,3 +23,8 @@
 
     <input type="submit" value="Update killer">
   </form>  %>
+
+  <form action = '/currencies/<%= @user.id %>/delete' method = "post">
+<input type = "hidden" name = "_method" value = "delete">
+<input type = "submit" value = "Delete User">
+</form>

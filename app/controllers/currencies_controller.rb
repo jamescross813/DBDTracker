@@ -25,9 +25,24 @@ class CurrenciesController < ApplicationController
         erb :'/currencies/show'
     end
     
-    patch '/currencies/:id/edit' do
+    get '/currencies/:id/edit' do
+        @currency = Currency.find(params[:id])
+        erb :'/currencies/edit'
+      end
+    
+    patch '/currencies/:id' do 
+        @currency = currency.find(params[:id])
+        @currency.update(params["currency"])
+        if !params["User"]["name"].empty?
+          @currency.User = User.create(name: params["User"]["name"])
+        end
+        @currency.save
+      redirect  "currencies/#{@currency.id}"
     end
     
     delete '/currencies/:id/delete' do
+        @currency = Currency.find_by_id(params)
+        @currency.delete
+        redirect to "/user/:id"
     end
     end
