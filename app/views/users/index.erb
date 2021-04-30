@@ -1,10 +1,8 @@
 <a href = "/logout">Log out</a>
 <% if Helpers.logged_in?(session) %>
     <h1>Welcome <%= Helpers.current_user(session).username %></h1>
-    <% @currencies.each do |c| %>
-     <h2><%= c.currency_name.capitalize %></h2>
-     <h2><%= c..amount %></h2>
-     <% end %>
+
+     
      <% end %>
 
 
