@@ -7,15 +7,12 @@ class CurrenciesController < ApplicationController
         
     
     post '/currencies' do
-        @currency = Currency.create(params)
-        
+        @currency = Currency.new(params)
         @user = User.find(session[:user_id])
-     
-        @user.currencies = @currency
         
-        
+        @user.currencies << @currency
         @currency.save
-        @currencies << @currency
+        
         redirect "users/#{@user.id}"
         
     end
@@ -31,15 +28,20 @@ class CurrenciesController < ApplicationController
       end
     
     patch '/currencies/:id' do 
+        @user = User.find_by_id(session[:user_id])
         @currency = Currency.find(params[:id])
-        binding.pry
-        @currency.update(params[:currency])
+        if @currency && @currency.user_id == session[:user_id]
+            @currency.update(params["currency"])
+        end
+        redirect to "/currencies/#{@currency.id}"
     end
     
     delete '/currencies/:id/delete' do
-        @currency = Currency.find_by_id(params)
+        @user = User.find_by_id(session[:user_id])
+        @currency = Currency.find_by_id(params[:id])
+        
         @currency.delete
-        redirect to "/user/:id"
+        redirect to "/users/#{@user.id}"
     end
     end
 
