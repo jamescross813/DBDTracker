@@ -4,7 +4,7 @@ get '/users/:id' do
 
     @user = User.find_by_id(session[:user_id])
    
-    # @currencies << Currency.find_by(:user_id => session[:user_id])
+    @currencies = @user.currencies
     @killer = Killer.find(1)
     @survivor = Survivor.find(1)
     
