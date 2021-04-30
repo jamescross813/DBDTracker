@@ -12,8 +12,8 @@ get '/users/:id' do
 end
 
 get '/users/:id/edit' do
-    binding.pry
-    erb :'/users/"#{@user.id}"/edit'
+   
+    erb :'/users/@user.id/edit'
 end
 
 
