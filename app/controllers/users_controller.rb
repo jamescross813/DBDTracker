@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 get '/users/:id' do
+    
     @user = User.find_by(session[:user_id])
    
     # @currencies << Currency.find_by(:user_id => session[:user_id])
