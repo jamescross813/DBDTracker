@@ -1,0 +1,6 @@
+<a href='/currencies/<%= @currency.id %>/edit'>Edit Currency</a> <br>
+
+<form action = '/currencies/<%= @currency.id %>/delete' method = "post">
+<input type = "hidden" name = "_method" value = "delete">
+<input type = "submit" value = "Delete User">
+</form>

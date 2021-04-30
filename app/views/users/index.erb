@@ -1,11 +1,11 @@
 <a href = "/logout">Log out</a>
 <% if Helpers.logged_in?(session) %>
     <h1>Welcome <%= Helpers.current_user(session).username %></h1>
-    <h2><a href='/currencies/<%= currency.id%>/index'>Currencies:</h2>
+    <h2>Currencies:</h2>
          <% @currencies.each do |c| %>
-         <h3>Name: <%= c.currency_name.capitalize %><br>
-         Amount: <%= c.amount %></h3>
+         <h3><a href='/currencies/<%= c.id%>'><%= c.currency_name.capitalize %></a>
          
+         <br>
          <% end %>
      <% end %>
 
