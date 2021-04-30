@@ -31,13 +31,9 @@ class CurrenciesController < ApplicationController
       end
     
     patch '/currencies/:id' do 
-        @currency = currency.find(params[:id])
-        @currency.update(params["currency"])
-        if !params["User"]["name"].empty?
-          @currency.User = User.create(name: params["User"]["name"])
-        end
-        @currency.save
-      redirect  "currencies/#{@currency.id}"
+        @currency = Currency.find(params[:id])
+        binding.pry
+        @currency.update(params[:currency])
     end
     
     delete '/currencies/:id/delete' do
@@ -46,3 +42,5 @@ class CurrenciesController < ApplicationController
         redirect to "/user/:id"
     end
     end
+
+   

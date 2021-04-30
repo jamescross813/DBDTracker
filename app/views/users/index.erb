@@ -3,7 +3,7 @@
     <h1>Welcome <%= Helpers.current_user(session).username %></h1>
     <h2>Currencies:</h2>
          <% @currencies.each do |c| %>
-         <h3><a href='/currencies/<%= c.id%>'><%= c.currency_name.capitalize %></a>
+         <h3><a href='/currencies/<%= c.id %>'><%= c.currency_name.capitalize %></a>
          
          <br>
          <% end %>
