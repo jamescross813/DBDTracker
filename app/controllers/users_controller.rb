@@ -11,8 +11,14 @@ get '/users/:id' do
     erb :'/users/index'
 end
 
+get '/users/:id/edit' do
+    binding.pry
+    erb :'/users/"#{@user.id}"/edit'
+end
+
 
 patch '/users/:id/edit' do
+
 end
 
 delete 'users/:id/delete' do
