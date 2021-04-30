@@ -17,15 +17,16 @@ get '/users/:id/edit' do
 end
 
 
-patch '/users/:id/edit' do
+patch '/users/:id' do
     @user = User.find_by_id(session[:user_id])
-    @user = User.update(:username => params[:username])
-    
+    @user.username = params[:username]
     @user.save
+    
     redirect to "/users/#{@user.id}"
 end
 
 delete 'users/:id/delete' do
+    
 end
 
 
