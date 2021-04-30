@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 get '/users/:id' do
 
-    @user = User.find_by(:id => session[:user_id])
+    @user = User.find_by_id(session[:user_id])
    
     # @currencies << Currency.find_by(:user_id => session[:user_id])
     @killer = Killer.find(1)
@@ -12,7 +12,7 @@ get '/users/:id' do
 end
 
 get '/users/:id/edit' do
-   @user = User.find_by(:id => session[:user_id])
+   @user = User.find_by_id(session[:user_id])
     erb :'/users/edit'
 end
 
@@ -25,8 +25,8 @@ patch '/users/:id' do
     redirect to "/users/#{@user.id}"
 end
 
-delete 'users/:id/delete' do
-    @user = User.find_by_id(params[:id])
+delete '/users/:id/delete' do
+    @user = User.find_by_id(session[:user_id])
     @user.delete
     redirect to "/"
 end

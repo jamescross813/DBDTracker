@@ -2,13 +2,9 @@
 <% if Helpers.logged_in?(session) %>
     <h1>Welcome <%= Helpers.current_user(session).username %></h1>
 
-     
      <% end %>
 
-<form action = '/users/<%= @user.id %>/delete' method = "post">
-<input type = "hidden" name = "_method" value = "delete">
-<input type = "submit" value = "delete">
-</form>
+
 
 <a href = "/killers/<%= @killer.id %>">Killer</a><br>
 
@@ -19,3 +15,8 @@
 <a href='/survivors/new'>Add Survivors</a><br>
 <a href='/currencies/:id/edit'>Edit Currency</a> <br>
 <a href ='/currencies/new'>Add Currency</a>
+
+<form action = '/users/<%= @user.id %>/delete' method = "post">
+<input type = "hidden" name = "_method" value = "delete">
+<input type = "submit" value = "Delete User">
+</form>
