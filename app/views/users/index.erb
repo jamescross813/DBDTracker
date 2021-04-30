@@ -5,7 +5,10 @@
      
      <% end %>
 
-
+<form action = '/users/<%= @user.id %>/delete' method = "post">
+<input type = "hidden" name = "_method" value = "delete">
+<input type = "submit" value = "delete">
+</form>
 
 <a href = "/killers/<%= @killer.id %>">Killer</a><br>
 
