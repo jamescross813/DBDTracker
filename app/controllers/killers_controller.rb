@@ -17,10 +17,12 @@ get '/killers/new' do
     end
     erb :'/killers/new'
 end
+exit!
     
 
 post'/killers' do
-    @killer = params[:killer][:killer_id]
+    binding.pry
+    # @killer = Killer.find_by_id(params[:killer][:killer_id])
     @user = User.find(session[:user_id])
     UserKiller.create(killer_id: params[:killer][:killer_id], :user_id => @user)
     
