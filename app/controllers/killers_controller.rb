@@ -7,6 +7,7 @@ get '/killers' do
 end
 
 get '/killers/new' do 
+    @user = User.find(session[:user_id])
     @killers = Killer.all
     @perks = []
     Perk.all.each do |perk|
@@ -19,8 +20,9 @@ end
     
 
 post'/killers' do
-   binding.pry
-    UserKiller.create(killer_id: params[:killer][:killer_id])
+    @killer = params[:killer][:killer_id]
+    @user = User.find(session[:user_id])
+    UserKiller.create(killer_id: params[:killer][:killer_id], :user_id => @user)
     
     KillerPerk.create(killer_id: params[:killer][:killer_id], perk_id: params[:killer][:perk_ids])
     
