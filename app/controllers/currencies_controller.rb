@@ -18,11 +18,13 @@ class CurrenciesController < ApplicationController
     end
     
     get '/currencies/:id' do 
+        @user = User.find_by_id(session[:user_id])
         @currency = Currency.find(params[:id])
         erb :'/currencies/show'
     end
     
     get '/currencies/:id/edit' do
+        @user = User.find_by_id(session[:user_id])
         @currency = Currency.find(params[:id])
         erb :'/currencies/edit'
       end
