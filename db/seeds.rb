@@ -18,8 +18,7 @@ currency1 = Currency.create(:currency_name => "Auric Cells", :amount => 9500)
                         :difficulty => data["difficulty"],
                         :overview => data["overview"],
                         :lore => data["lore"],
-                        :dlc => data["dlc"],
-                        :killer_base_perks => data["perks"])    
+                        :dlc => data["dlc"]])    
                 end
         
         survivor = HTTParty.get("https://dbd-api.herokuapp.com/survivors")
@@ -31,8 +30,7 @@ currency1 = Currency.create(:currency_name => "Auric Cells", :amount => 9500)
                         :overview => data["overview"], 
                         :lore => data ["lore"], 
                         :difficulty => data["difficulty"],
-                        :dlc => data["dlc"],
-                        :survivor_base_perks => data["perks"])  
+                        :dlc => data["dlc"])  
                 end  
 
         perk = HTTParty.get("https://dbd-api.herokuapp.com/perks")

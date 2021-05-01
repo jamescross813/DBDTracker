@@ -17,7 +17,7 @@ get '/killers/new' do
     end
     erb :'/killers/new'
 end
-exit!
+
     
 
 post'/killers' do
