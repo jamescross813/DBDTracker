@@ -1,5 +1,4 @@
-<h1>Edit page</h1>
-<%# <h1>Update Killer</h1>
+<h1>Update Killer</h1>
 
 <h2>Edits for <%= @killer.name %></h2>
 
@@ -18,8 +17,6 @@
       <input type="checkbox" name="killer[perk_id][]" id="<%= perk.id %>" value="<%= perk.id %>" <%='checked' if @killer.perks.include?(perk) %>><%= perk.name %></input><br>
     <% end %>
     <br>
-
-    
 
     <input type="submit" value="Update killer">
   </form>  %>
